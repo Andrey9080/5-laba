@@ -1,4 +1,3 @@
-# 5-laba
 #include <iostream>
 #include <math.h>
 
@@ -22,7 +21,7 @@ double hx(double a, double b, double N)
 	double x = (b - a) / (2 * N);
 	return x;
 }
-double hy(double d, double c, double M)
+double hy(double c, double d, double M)
 {
 	double x = (d - c) / (2 * M);
 	return x;
@@ -73,15 +72,15 @@ double Kub(double a, double b, double c, double d, int M, int N)
 	{
 		for (int j = 1; j < M; j++)
 		{
-			sum -= f(xi(a, 2 * i, hx(a, b, i)), yj(c, 2 * j, hy(c, d, j)))
-				+ 4 * f(xi(a, (2 * i) + 1, hx(a, b, i)), yj(c, 2 * j, hy(c, d, j)))
-				+ f(xi(a, (2 * i) + 2, hx(a, b, i)), yj(c, 2 * j, hy(c, d, j)))
-				+ 4 * f(xi(a, (2 * i), hx(a, b, i)), yj(c, (2 * j) + 1, hy(c, d, j)))
-				+ 16 * f(xi(a, (2 * i) + 1, hx(a, b, i)), yj(c, (2 * j) + 1, hy(c, d, j)))
-				+ 4 * f(xi(a, (2 * i) + 2, hx(a, b, i)), yj(c, (2 * j) + 1, hy(c, d, j))) 
-				+ f(xi(a, 2 * i, hx(a, b, i)), yj(c, (2 * j) + 2, hy(c, d, j))) 
-				+ 4 * f(xi(a, (2 * i) + 1, hx(a, b, i)), yj(c, (2 * j) + 2, hy(c, d, j)))
-				+ f(xi(a, (2 * i) + 2, hx(a, b, i)), yj(c, (2 * j) + 2, hy(c, d, j)));
+			sum += f(xi(a, 2 * i, hx(a, b, N)), yj(c, 2 * j, hy(c, d, M)))
+				+ 4 * f(xi(a, (2 * i) + 1, hx(a, b, N)), yj(c, 2 * j, hy(c, d, M)))
+				+ f(xi(a, (2 * i) + 2, hx(a, b, N)), yj(c, 2 * j, hy(c, d, M)))
+				+ 4 * f(xi(a, (2 * i), hx(a, b, N)), yj(c, (2 * j) + 1, hy(c, d, M)))
+				+ 16 * f(xi(a, (2 * i) + 1, hx(a, b, N)), yj(c, (2 * j) + 1, hy(c, d, M)))
+				+ 4 * f(xi(a, (2 * i) + 2, hx(a, b, N)), yj(c, (2 * j) + 1, hy(c, d, M))) 
+				+ f(xi(a, 2 * i, hx(a, b, N)), yj(c, (2 * j) + 2, hy(c, d, M))) 
+				+ 4 * f(xi(a, (2 * i) + 1, hx(a, b, N)), yj(c, (2 * j) + 2, hy(c, d, M)))
+				+ f(xi(a, (2 * i) + 2, hx(a, b, N)), yj(c, (2 * j) + 2, hy(c, d, M)));
 			
 		}
 	 
