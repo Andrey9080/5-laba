@@ -67,20 +67,21 @@ double Trap(double a, double b, int n)
 }
 double Kub(double a, double b, double c, double d, int M, int N)
 {
-	double I =( hx(a, b, N) * hy(c, d, M)) / 9,sum=0, res=0;
+	double HX = hx(a, b, N), HY = hy(c, d, M);
+	double I =(HX * HY) / 9,sum=0, res=0;
 	for (int i = 1; i < N; i++)
 	{
 		for (int j = 1; j < M; j++)
 		{
-			sum += f(xi(a, 2 * i, hx(a, b, N)), yj(c, 2 * j, hy(c, d, M)))
-				+ 4 * f(xi(a, (2 * i) + 1, hx(a, b, N)), yj(c, 2 * j, hy(c, d, M)))
-				+ f(xi(a, (2 * i) + 2, hx(a, b, N)), yj(c, 2 * j, hy(c, d, M)))
-				+ 4 * f(xi(a, (2 * i), hx(a, b, N)), yj(c, (2 * j) + 1, hy(c, d, M)))
-				+ 16 * f(xi(a, (2 * i) + 1, hx(a, b, N)), yj(c, (2 * j) + 1, hy(c, d, M)))
-				+ 4 * f(xi(a, (2 * i) + 2, hx(a, b, N)), yj(c, (2 * j) + 1, hy(c, d, M))) 
-				+ f(xi(a, 2 * i, hx(a, b, N)), yj(c, (2 * j) + 2, hy(c, d, M))) 
-				+ 4 * f(xi(a, (2 * i) + 1, hx(a, b, N)), yj(c, (2 * j) + 2, hy(c, d, M)))
-				+ f(xi(a, (2 * i) + 2, hx(a, b, N)), yj(c, (2 * j) + 2, hy(c, d, M)));
+			sum += f(xi(a, 2 * i, HX), yj(c, 2 * j, HY))
+				+ 4 * f(xi(a, (2 * i) + 1, HX), yj(c, 2 * j, HY))
+				+ f(xi(a, (2 * i) + 2, HX), yj(c, 2 * j, HY))
+				+ 4 * f(xi(a, (2 * i), HX), yj(c, (2 * j) + 1, HY))
+				+ 16 * f(xi(a, (2 * i) + 1, HX), yj(c, (2 * j) + 1, HY))
+				+ 4 * f(xi(a, (2 * i) + 2, HX), yj(c, (2 * j) + 1, HY))
+				+ f(xi(a, 2 * i, HX), yj(c, (2 * j) + 2, HY))
+				+ 4 * f(xi(a, (2 * i) + 1, HX), yj(c, (2 * j) + 2, HY))
+				+ f(xi(a, (2 * i) + 2, HX), yj(c, (2 * j) + 2, HY));
 			
 		}
 	 
